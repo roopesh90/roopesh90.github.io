@@ -3,22 +3,33 @@
 ---
 ### Inspired from
 
-Victoria – Simple vCard[ http://blacktie.co/2013/10/victoria-simple-vcard/]
+[Victoria – Simple vCard][1]
 
 ### Resources Used
-- [Bootstrap] http://getbootstrap.com
-- [TinyPNG]
-https://tinypng.com/ - for smushing images
-- Color Thief http://lokeshdhakar.com/projects/color-thief/ 
- and ColorFinder: The demo http://pieroxy.net/blog/pages/color-finder/demo.html - to find the prominent dark and light colors
-- unofficial GitHub buttons https://ghbtns.com/#follow
-- Qoura https://www.quora.com and stackoverflow http://stackoverflow.com/ - for most random questions
-- w3schools http://www.w3schools.com - for all the obvious reasons
-- Gimp  https://www.gimp.org/ - everything to do with image editing 
-- Atom - the hackable text editor https://atom.io/ - coding and markup
+- [Bootstrap][2]
+- [TinyPNG][3] - for smushing images
+- [Color Thief][4]
+ and [ColorFinder: The demo][5] - to find the prominent dark and light colors
+- [unofficial GitHub buttons][6]
+- [Qoura][7]  and [stackoverflow][8] - for most random questions
+- [w3schools][9] - for all the obvious reasons
+- [Gimp][10] - everything to do with image editing 
+- [Atom - the hackable text editor][11] - coding and markup
 
 #### License
 ----
-This work is licensed under GNU General Public License, v2.0
+Licensed under GNU General Public License, v2.0
 
 Cheers!
+
+[1]: http://blacktie.co/2013/10/victoria-simple-vcard/
+[2]: http://getbootstrap.com/
+[3]: https://tinypng.com/
+[4]:  http://lokeshdhakar.com/projects/color-thief/
+[5]: http://pieroxy.net/blog/pages/color-finder/demo.html
+[6]: https://ghbtns.com/#follow
+[7]: https://www.quora.com
+[8]: http://stackoverflow.com/
+[9]: http://www.w3schools.com/
+[10]: https://www.gimp.org/ 
+[11]:  https://atom.io/
