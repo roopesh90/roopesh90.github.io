@@ -77,22 +77,30 @@ p {
 .jumbotron_msg_cs{
     font-size: 50px;
     line-height: 50px;
+    padding-bottom: 15px;
 }
 a:hover {
     /*text-shadow: 2px 2px 4px #ffffff;
     background: #23527C;*/
 }
+.sharer{
+    padding-top: 10px;
+}
 
 @media (max-width: 480px) { 
+    body{
+        padding-top: 40px;
+    }
     .jumbotron_title_cs{
         font-size: 50px;
     }
     .jumbotron_msg_cs{
         font-size: 35px;
-        line-height: 50px;
+        line-height: 35px;
     }
     a {
         color:#23527C !important; 
         /*text-shadow: 2px 2px 4px #ffffff;*/
     }
+    
 }
