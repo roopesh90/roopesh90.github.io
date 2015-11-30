@@ -20,7 +20,6 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    
   }
 
 h1, h2, h3, h4, h5, h6 {
@@ -89,7 +88,7 @@ a:hover {
 
 @media (max-width: 480px) { 
     body{
-        padding-top: 40px;
+        padding-top: 20px;
     }
     .jumbotron_title_cs{
         font-size: 50px;
