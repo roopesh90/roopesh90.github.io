@@ -224,6 +224,13 @@ grey {
 	padding-right: 0px;
 }
 
+/* fontawesome custome toggle , fa-lg n no-fa-lg */
+/* makes the font 33% larger relative to the icon container */
+.fa_toggle {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
 
 @media (max-width: 768px) { 
     body{
@@ -250,4 +257,9 @@ grey {
         min-height: 185px;
     }
     
+    .fa_toggle {
+        font-size: inherit;
+        line-height: inherit;
+        vertical-align: inherit;
+    }
 }
