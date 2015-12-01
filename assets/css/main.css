@@ -235,6 +235,7 @@ grey {
 @media (max-width: 768px) { 
     body{
         padding-top: 50px;
+    	background-attachment: scroll;
     }
     .jumbotron_title_cs{
         font-size: 50px;
