@@ -84,12 +84,14 @@ a:after {
 }
 
 
-.col-md-4 {
+.col-md-4,
+.col-sm-4 {
 	padding-left: 0px;
 	padding-right: 0px;
 }
 
-.col-md-8 {
+.col-md-8,
+.col-sm-8 {
 	padding-left: 0px;
 	padding-right: 0px;
 }
@@ -216,7 +218,14 @@ grey {
     padding-bottom: 20px;
 }
 
-@media (max-width: 480px) { 
+.tab_nav,
+.tab_nav_element{
+    padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+@media (max-width: 768px) { 
     body{
         padding-top: 50px;
     }
@@ -228,5 +237,17 @@ grey {
         line-height: 35px;
     }
     
+    .vCard-content, .tab-pane{
+        max-height:none;
+    }
+
+    .tab_nav{
+        max-height: 180px;
+        overflow: hidden;
+        border-bottom: 2px;
+    }
+    .avatar_img{
+        min-height: 185px;
+    }
     
 }
