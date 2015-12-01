@@ -192,6 +192,10 @@ grey {
 .whiteout{
     color: #ffffff;
 }
+.prom_c_light,
+.prom_c_light > *{
+    color: #008CCC;
+}
 
 [class^="jumbotron_"],
 [class^="jumbotron_"]  * {
@@ -224,12 +228,51 @@ grey {
 	padding-right: 0px;
 }
 
-/* fontawesome custome toggle , fa-lg n no-fa-lg */
+/* fontawesome custome css , fa-lg n no-fa-lg */
+/* fa_toggle , fa-lg n no-fa-lg */
 /* makes the font 33% larger relative to the icon container */
 .fa_toggle {
   font-size: 1.33333333em;
   line-height: 0.75em;
   vertical-align: -15%;
+}
+/* fa_rev_pulse and fa_rev_spin ,*/
+.fa_rev_spin {
+  -webkit-animation: fa-spin3s infinite linear reverse;
+  animation: fa-spin 3s infinite linear reverse;
+}
+.fa_f_spin {
+  -webkit-animation: fa-spin 3s infinite linea;
+  animation: fa-spin 3s infinite linear;
+}
+.fa_ff_spin {
+  -webkit-animation: fa-spin 3s infinite linear;
+  animation: fa-spin 3s infinite linear;
+}
+
+/* loading spinner */
+.loading_parent{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: #555;
+}
+.loading_spinner{
+    margin-top: 40%;
+}
+#spinner_cog_1{
+    margin-top: -15px;
+    margin-right: -7px;
+}
+#spinner_cog_2{
+}
+#spinner_cog_3{
+    margin-left: -28px;
+    margin-bottom: -83px;
+}
+.loaded{
+    display: none;
 }
 
 @media (max-width: 768px) { 
@@ -296,4 +339,30 @@ grey {
 .fadeIn {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }
