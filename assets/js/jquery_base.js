@@ -13,7 +13,6 @@ $(document).ready(function(){
       else{
           history.pushState({}, "", this.href);
       }
-      
     });
     
     //To switch tabs if url has nav button hash
