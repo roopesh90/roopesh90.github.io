@@ -1,13 +1,15 @@
 /*
-*Cutom js for site functioning
+* Custom js for site functioning
 */
 $(document).ready(function(){ 
+    //To switch tabs on clicking nav buttons
     $('#vCard_navTab a').click(function (e) {
       e.preventDefault()
       $(this).tab('show')
     });
-
-    var check_hash = function(){
+    
+    //To switch tabs if url has nav button hash
+    var check_n_switchTab = function(){
         var _hsh = window.location.hash;
         var _hsh_array = _hsh.split(/[#?|&]/);
         if (_hsh_array.length > 1){
@@ -17,4 +19,5 @@ $(document).ready(function(){
             console.log(_ancr);
         }
     };
+    check_n_switchTab();
 });
