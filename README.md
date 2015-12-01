@@ -11,6 +11,7 @@
 - [Color Thief][4]
  and [ColorFinder: The demo][5] - to find the prominent dark and light colors
 - [unofficial GitHub buttons][6]
+- [Animate.css][12] - for the fade
 - [Qoura][7]  and [stackoverflow][8] - for most random questions
 - [w3schools][9] - for all the obvious reasons
 - [Gimp][10] - everything to do with image editing 
@@ -32,4 +33,5 @@ Cheers!
 [8]: http://stackoverflow.com/
 [9]: http://www.w3schools.com/
 [10]: https://www.gimp.org/ 
-[11]:  https://atom.io/
+[11]: https://atom.io/
+[12]: http://daneden.github.io/animate.css
