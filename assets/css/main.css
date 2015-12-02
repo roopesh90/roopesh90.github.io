@@ -8,11 +8,11 @@ body {
     font-weight: 300;
     font-size: 16px;
     color: #555;
-    padding-top: 150px;
-    padding-bottom: 20px;
+    padding-top: 125px;
+    padding-bottom: 50px;
     
     
-	background-image:linear-gradient(to bottom, rgba(105, 191, 231, 0.46), rgba(105, 191, 231, 0.46)), url(../img/coming_soon_bg.png);
+	background-image:linear-gradient(to bottom, rgba(105, 191, 231, 0.46), rgba(105, 191, 231, 0.46)), url(../img/full_body_bg.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
@@ -38,7 +38,33 @@ p {
 .centered {
     text-align: center;
 }
+/* Links */
+a {
+    color: #008CCC;
+    word-wrap: break-word;
 
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
 
  hr {
     display: block;
@@ -49,18 +75,126 @@ p {
     padding: 0;
 }
 
-.col-md-4 {
+.w {
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	-moz-box-shadow: 5px 5px rgba(0,0,0,0.2);
+	-webkit-box-shadow: 5px 5px rgba(0,0,0,0.2);
+	box-shadow: 5px 5px rgba(0,0,0,0.2);
+}
+
+
+.col-md-4,
+.col-sm-4 {
 	padding-left: 0px;
 	padding-right: 0px;
 }
 
-.col-md-8 {
+.col-md-8,
+.col-sm-8 {
 	padding-left: 0px;
 	padding-right: 0px;
+}
+
+
+.nav-tabs {
+	border-bottom: 1px solid #dddddd;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	color: #555555;
+	cursor: default;
+	background-color: #ffffff;
+	border-left: 5px solid #008CCC;
+	border-bottom-color: transparent;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	width: 100%;
+}
+
+.nav-tabs > li > a {
+	margin-right: 2px;
+	line-height: 1.428571429;
+	border-bottom: 1px solid #dddddd;
+	border-radius: 0 0 0 0;
+	width: 100%;
+	background-color: #f2f2f2;
+}
+
+.tab-content {
+	background-color: #ffffff;
+	padding-left: 15px;
+	padding-top: 20px;
+	/*padding-right: 5px;*/
+}
+
+.tab-content h5 {
+	color: #bdc3c7;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.tab-pane{
+  /*max-height:350px;*/
+  overflow-y:auto;
+  overflow-x: hidden;
+  width:100%;
+}
+
+.red i {
+	font-size: 12px;
+	color: #e74c3c;
+}
+
+i {
+	vertical-align: middle;
+}
+
+.sm {
+	font-size: 14px;
+}
+
+a h6{
+	color: #1abc9c;
+}
+
+a h6:hover {
+	color: #7b7b7b;
+}
+
+grey {
+	color: #bdc3c7;
+	font-weight: 700;
+}
+
+.vCard-content, .tab-pane{
+    max-height:400px;
+}
+
+.avatar_img{
+    max-width: 100%;
+    min-height: 250px;
+    display: block;
+    max-height: 312px;
+    
+    /*background-image:linear-gradient(to bottom, rgba(105, 191, 231, 0.46), rgba(105, 191, 231, 0.46)), url(../img/avatar_2943150.jpeg);*/
+    background-image: url(../img/avatar_2943150.jpeg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	/*background-attachment: fixed;*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
 }
 
 .whiteout{
     color: #ffffff;
+}
+.prom_c_light,
+.prom_c_light > *{
+    color: #008CCC;
 }
 
 [class^="jumbotron_"],
@@ -78,17 +212,73 @@ p {
     line-height: 50px;
     padding-bottom: 15px;
 }
-a:hover {
-    /*text-shadow: 2px 2px 4px #ffffff;
-    background: #23527C;*/
-}
+
 .sharer{
     padding-top: 10px;
+    min-height: 36px;
 }
 
-@media (max-width: 480px) { 
+.tab-pane#contact{
+    padding-bottom: 20px;
+}
+
+.tab_nav,
+.tab_nav_element{
+    padding-left: 0px;
+	padding-right: 0px;
+}
+
+/* fontawesome custome css , fa-lg n no-fa-lg */
+/* fa_toggle , fa-lg n no-fa-lg */
+/* makes the font 33% larger relative to the icon container */
+.fa_toggle {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+/* fa_rev_pulse and fa_rev_spin ,*/
+.fa_rev_spin {
+  -webkit-animation: fa-spin3s infinite linear reverse;
+  animation: fa-spin 3s infinite linear reverse;
+}
+.fa_f_spin {
+  -webkit-animation: fa-spin 3s infinite linea;
+  animation: fa-spin 3s infinite linear;
+}
+.fa_ff_spin {
+  -webkit-animation: fa-spin 3s infinite linear;
+  animation: fa-spin 3s infinite linear;
+}
+
+/* loading spinner */
+.loading_parent{
+    width: 100%;
+    height: 200%;
+    position: fixed;
+    top: 0;
+    background-color: #555;
+}
+.loading_spinner{
+    margin-top: 20%;
+}
+#spinner_cog_1{
+    margin-top: -15px;
+    margin-right: -7px;
+}
+#spinner_cog_2{
+}
+#spinner_cog_3{
+    margin-left: -28px;
+    margin-bottom: -83px;
+}
+.loaded{
+    display: none;
+}
+
+@media (max-width: 768px) { 
     body{
-        padding-top: 20px;
+        padding-top: 50px;
+    	background-attachment: scroll;
     }
     .jumbotron_title_cs{
         font-size: 50px;
@@ -97,9 +287,85 @@ a:hover {
         font-size: 35px;
         line-height: 35px;
     }
-    a {
-        color:#23527C !important; 
-        /*text-shadow: 2px 2px 4px #ffffff;*/
+    
+    .vCard-content, .tab-pane{
+        max-height:none;
+    }
+
+    .tab_nav{
+        max-height: 180px;
+        overflow: hidden;
+        border-bottom: 2px;
+    }
+    .avatar_img{
+        min-height: 185px;
     }
     
+    .fa_toggle {
+        font-size: inherit;
+        line-height: inherit;
+        vertical-align: inherit;
+    }
+    .loading_spinner{
+        margin-top: 60%;
+    }
+}
+
+/* text animation from https://github.com/daneden/animate.css */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
 }
