@@ -272,6 +272,10 @@ grey {
 .loaded{
   display: none;
 }
+.email{
+  height: 20px;
+  max-height: 20px;
+}
 
 @media (max-width: 768px) { 
   body{
