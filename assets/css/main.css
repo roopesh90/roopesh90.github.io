@@ -3,36 +3,34 @@
  */
 
 body {
-  	background-color: #D8E5EB;
-    font-family: "Lato";
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
-    padding-top: 125px;
-    padding-bottom: 50px;
-    
-    
+  background-color: #D8E5EB;
+  font-family: "Lato";
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+  padding-top: 125px;
+  padding-bottom: 50px;
 	background-image:linear-gradient(to bottom, rgba(105, 191, 231, 0.46), rgba(105, 191, 231, 0.46)), url(../img/full_body_bg.png);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Raleway";
-    font-weight: 300;
-    color: #333;
+  font-family: "Raleway";
+  font-weight: 300;
+  color: #333;
 }
 
 
 /* Paragraph & Typographic */
 p {
-    line-height: 28px;
-    margin-bottom: 25px;
+  line-height: 28px;
+  margin-bottom: 25px;
 }
 
 .centered {
@@ -40,39 +38,39 @@ p {
 }
 /* Links */
 a {
-    color: #008CCC;
-    word-wrap: break-word;
+  color: #008CCC;
+  word-wrap: break-word;
 
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
+  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+  transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
 a:hover,
 a:focus {
-    color: #7b7b7b;
-    text-decoration: none;
-    outline: 0;
+  color: #7b7b7b;
+  text-decoration: none;
+  outline: 0;
 }
 
 a:before,
 a:after {
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
+  -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+  -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+  transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
 }
 
 .w {
@@ -168,24 +166,24 @@ grey {
 }
 
 .vCard-content, .tab-pane{
-    max-height:400px;
+  max-height:400px;
 }
 
 .avatar_img{
-    max-width: 100%;
-    min-height: 250px;
-    display: block;
-    max-height: 312px;
-    
-    /*background-image:linear-gradient(to bottom, rgba(105, 191, 231, 0.46), rgba(105, 191, 231, 0.46)), url(../img/avatar_2943150.jpeg);*/
     background-image: url(../img/avatar_2943150.jpeg);
+  max-width: 100%;
+  min-height: 250px;
+  display: block;
+  max-height: 312px;
+  
+  /*background-image:linear-gradient(to bottom, rgba(105, 191, 231, 0.46), rgba(105, 191, 231, 0.46)), url(../img/avatar_2943150.jpeg);*/
 	background-repeat: no-repeat;
 	background-position: center center;
 	/*background-attachment: fixed;*/
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
 }
 
@@ -199,32 +197,32 @@ grey {
 
 [class^="jumbotron_"],
 [class^="jumbotron_"]  * {
-    color: #ffffff;
-    text-shadow: 2px 2px 4px #000000;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .jumbotron_title_cs{
-    padding-top:25px;
-    font-size: 100px;
+  padding-top:25px;
+  font-size: 100px;
 }
 .jumbotron_msg_cs{
-    font-size: 50px;
-    line-height: 50px;
-    padding-bottom: 15px;
+  font-size: 50px;
+  line-height: 50px;
+  padding-bottom: 15px;
 }
 
 .sharer{
-    padding-top: 10px;
-    min-height: 36px;
+  padding-top: 10px;
+  min-height: 36px;
 }
 
 .tab-pane#contact{
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .tab_nav,
 .tab_nav_element{
-    padding-left: 0px;
+  padding-left: 0px;
 	padding-right: 0px;
 }
 
@@ -252,63 +250,63 @@ grey {
 
 /* loading spinner */
 .loading_parent{
-    width: 100%;
-    height: 200%;
-    position: fixed;
-    top: 0;
-    background-color: #555;
+  width: 100%;
+  height: 200%;
+  position: fixed;
+  top: 0;
+  background-color: #555;
 }
 .loading_spinner{
-    margin-top: 20%;
+  margin-top: 20%;
 }
 #spinner_cog_1{
-    margin-top: -15px;
-    margin-right: -7px;
+  margin-top: -15px;
+  margin-right: -7px;
 }
 #spinner_cog_2{
 }
 #spinner_cog_3{
-    margin-left: -28px;
-    margin-bottom: -83px;
+  margin-left: -28px;
+  margin-bottom: -83px;
 }
 .loaded{
-    display: none;
+  display: none;
 }
 
 @media (max-width: 768px) { 
-    body{
-        padding-top: 50px;
-    	background-attachment: scroll;
-    }
-    .jumbotron_title_cs{
-        font-size: 50px;
-    }
-    .jumbotron_msg_cs{
-        font-size: 35px;
-        line-height: 35px;
-    }
-    
-    .vCard-content, .tab-pane{
-        max-height:none;
-    }
+  body{
+    padding-top: 50px;
+    background-attachment: scroll;
+  }
+  .jumbotron_title_cs{
+    font-size: 50px;
+  }
+  .jumbotron_msg_cs{
+    font-size: 35px;
+    line-height: 35px;
+  }
+  
+  .vCard-content, .tab-pane{
+    max-height:none;
+  }
 
-    .tab_nav{
-        max-height: 180px;
-        overflow: hidden;
-        border-bottom: 2px;
-    }
-    .avatar_img{
-        min-height: 185px;
-    }
-    
-    .fa_toggle {
-        font-size: inherit;
-        line-height: inherit;
-        vertical-align: inherit;
-    }
-    .loading_spinner{
-        margin-top: 60%;
-    }
+  .tab_nav{
+    max-height: 180px;
+    overflow: hidden;
+    border-bottom: 2px;
+  }
+  .avatar_img{
+    min-height: 185px;
+  }
+  
+  .fa_toggle {
+    font-size: inherit;
+    line-height: inherit;
+    vertical-align: inherit;
+  }
+  .loading_spinner{
+    margin-top: 60%;
+  }
 }
 
 /* text animation from https://github.com/daneden/animate.css */
