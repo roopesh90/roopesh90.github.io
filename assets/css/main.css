@@ -275,6 +275,8 @@ grey {
 .email{
   height: 20px;
   max-height: 20px;
+	pointer-events: none;
+  user-select: none;
 }
 
 @media (max-width: 768px) { 
