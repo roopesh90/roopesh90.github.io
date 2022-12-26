@@ -31,6 +31,13 @@ $(document).ready(function(){
         }
     };
     check_n_switchTab();
+
+    var updateExperience = function(){ 
+        var today = new Date();
+        var exp = today.getFullYear() - 2012;
+        $('#experience').text(exp);
+    };
+    updateExperience();
     
     //To check if is page ready ans hide the spinner
     var _chk_upnrunnin = function(){
