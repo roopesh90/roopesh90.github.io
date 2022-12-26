@@ -46,10 +46,10 @@ $(document).ready(function(){
                 _spinr_prnt.addClass('animated fadeOut');
                 setTimeout(function(){
                     _spinr_prnt.addClass('loaded');
-                },2000);
+                },1000);
                 
             }
-        },4000);
+        },2000);
         
     };
     _chk_upnrunnin();
