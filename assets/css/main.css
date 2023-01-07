@@ -123,7 +123,6 @@ a:after {
 	background-color: #ffffff;
 	padding-left: 15px;
 	padding-top: 20px;
-	/*padding-right: 5px;*/
 }
 
 .tab-content h5 {
@@ -133,7 +132,6 @@ a:after {
 }
 
 .tab-pane{
-  /*max-height:350px;*/
   overflow-y:auto;
   overflow-x: hidden;
   width:100%;
@@ -178,7 +176,6 @@ grey {
   background-image: url(../img/Profile.jpg);
 	background-repeat: no-repeat;
 	background-position: center center;
-	/*background-attachment: fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
