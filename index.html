@@ -469,28 +469,87 @@
     color: var(--ink-soft);
     margin: -4px 0 28px;
   }
-  .role {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 4px 16px;
-    padding: 18px 0;
-    border-top: 1px solid var(--rule);
-    align-items: baseline;
+  .timeline {
+    position: relative;
+    padding-left: 28px;
   }
-  .role:first-child { border-top: none; }
-  .role .org { font-weight: 600; font-size: 1.02rem; }
-  .role .when {
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 1.5px;
+    background: var(--rule);
+  }
+  .timeline-item {
+    position: relative;
+    padding: 0 0 36px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-node {
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--signal);
+    z-index: 1;
+  }
+  .timeline-item:first-child .timeline-node {
+    background: var(--signal-bright);
+    box-shadow: 0 0 0 3px rgba(62,122,99,0.2);
+  }
+  .timeline-content .org { font-weight: 600; font-size: 1.02rem; display: block; }
+  .timeline-content .when {
     font-family: var(--mono);
     font-size: 12px;
     color: var(--ink-soft);
     white-space: nowrap;
+    display: inline-block;
+    margin-top: 3px;
   }
-  .role .desc {
-    grid-column: 1 / -1;
+  .timeline-content .desc {
     color: var(--ink-soft);
     font-size: 0.96rem;
-    margin: 6px 0 0;
-    max-width: 64ch;
+    margin: 8px 0 0;
+  }
+  @media (max-width: 560px) {
+    .timeline { padding-left: 22px; }
+    .timeline::before { left: 4px; }
+    .timeline-node { left: -22px; width: 9px; height: 9px; }
+  }
+  .timeline-origin {
+    position: relative;
+    padding-bottom: 0;
+  }
+  .timeline-origin::before {
+    content: '';
+    position: absolute;
+    left: -22.5px;
+    top: -8px;
+    bottom: -6px;
+    width: 0;
+    border-left: 1.5px dashed var(--ink-soft);
+    background: var(--paper);
+  }
+  .timeline-origin .timeline-node {
+    width: 11px;
+    height: 11px;
+    border: 1.5px dashed var(--ink-soft);
+    background: transparent;
+    top: 5px;
+  }
+  .timeline-origin .org {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 560px) {
+    .timeline-origin .timeline-node { left: -22px; width: 9px; height: 9px; }
+    .timeline-origin::before { left: -17.5px; }
   }
 
   /* ---------- Stack ---------- */
@@ -724,46 +783,78 @@
     <p class="section-label">experience</p>
     <p class="bridge-line">Everything above comes from somewhere. Here is the record.</p>
 
-    <div class="role">
-      <span class="org">Independent, Fractional CTO &amp; Tech Advisor</span>
-      <span class="when">Jul 2025 to Present</span>
-      <p class="desc">Working with two to three early-stage fintech and B2B teams at a time, embedded enough to be in the room for the decisions that matter, not just called in to clean up after.</p>
-    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Independent, Fractional CTO &amp; Tech Advisor</span>
+          <span class="when">Jul 2025 to Present</span>
+          <p class="desc">Working with two to three early-stage fintech and B2B teams at a time, embedded enough to be in the room for the decisions that matter, not just called in to clean up after.</p>
+        </div>
+      </div>
 
-    <div class="role">
-      <span class="org">Zones LLC, Development Lead, Integrations</span>
-      <span class="when">Jun 2024 to Jun 2025</span>
-      <p class="desc">Led the integrations team sitting at the centre of a large enterprise org: Dynamics 365 CRM, ERP, e-commerce, and reporting. Owned the integration layer for an Azure migration covering 60% of company revenue, and cut SLA breaches from 70% to 10% during the US go-live.</p>
-    </div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Zones LLC, Development Lead, Integrations</span>
+          <span class="when">Jun 2024 to Jun 2025</span>
+          <p class="desc">Led the integrations team sitting at the centre of a large enterprise org: Dynamics 365 CRM, ERP, e-commerce, and reporting. Owned the integration layer for an Azure migration covering 60% of company revenue, and cut SLA breaches from 70% to 10% during the US go-live.</p>
+        </div>
+      </div>
 
-    <div class="role">
-      <span class="org">Defi Technologies, Lead Software Engineer</span>
-      <span class="when">Nov 2020 to Feb 2024</span>
-      <p class="desc">Sixth team member. Led technical direction across four cryptocurrency products: retail trading, an enterprise white-labeled exchange, a derivatives platform, and a B2B OTC platform built 0 to 1. Built the Customer Delight practice and the API Gateway layer.</p>
-    </div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Defi Technologies, Lead Software Engineer</span>
+          <span class="when">Nov 2020 to Feb 2024</span>
+          <p class="desc">Sixth team member. Led technical direction across four cryptocurrency products: retail trading, an enterprise white-labeled exchange, a derivatives platform, and a B2B OTC platform built 0 to 1. Built the Customer Delight practice and the API Gateway layer.</p>
+        </div>
+      </div>
 
-    <div class="role">
-      <span class="org">NIRA (Shuhari Tech Ventures), Lead Software Engineer</span>
-      <span class="when">Jun 2018 to Nov 2020</span>
-      <p class="desc">First technical hire. Built the integration layer with Indian banking partners, the data infrastructure, and the information security practice from scratch. Mentored a team of 8 as the senior-most engineer.</p>
-    </div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">NIRA (Shuhari Tech Ventures), Lead Software Engineer</span>
+          <span class="when">Jun 2018 to Nov 2020</span>
+          <p class="desc">First technical hire. Built the integration layer with Indian banking partners, the data infrastructure, and the information security practice from scratch. Mentored a team of 8 as the senior-most engineer.</p>
+        </div>
+      </div>
 
-    <div class="role">
-      <span class="org">Sporthood, Senior Software Developer</span>
-      <span class="when">Oct 2017 to May 2018</span>
-      <p class="desc">Led the B2B platform build for partners and trainers, including web, Android, and backend APIs, for India's largest amateur sports network.</p>
-    </div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Sporthood, Senior Software Developer</span>
+          <span class="when">Oct 2017 to May 2018</span>
+          <p class="desc">Led the B2B platform build for partners and trainers, including web, Android, and backend APIs, for India's largest amateur sports network.</p>
+        </div>
+      </div>
 
-    <div class="role">
-      <span class="org">Seynse Technologies, Technology Lead</span>
-      <span class="when">Jan 2016 to Jun 2017</span>
-      <p class="desc">Led the technology team across customer-facing applications, third-party integrations, and production environments for a cluster of digital financial products.</p>
-    </div>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Seynse Technologies, Technology Lead</span>
+          <span class="when">Jan 2016 to Jun 2017</span>
+          <p class="desc">Led the technology team across customer-facing applications, third-party integrations, and production environments for a cluster of digital financial products.</p>
+        </div>
+      </div>
 
-    <div class="role">
-      <span class="org">Clockwork Studios, Founding Team, Full-Stack Developer</span>
-      <span class="when">Dec 2012 to Jan 2016</span>
-      <p class="desc">Founding engineer on two consumer products: a fashion discovery platform (JFDI Asia accelerator, Singapore) and a price-monitoring platform (winner, Echelon Satellite 2014).</p>
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Clockwork Studios, Founding Team, Full-Stack Developer</span>
+          <span class="when">Dec 2012 to Jan 2016</span>
+          <p class="desc">Founding engineer on two consumer products: a fashion discovery platform (JFDI Asia accelerator, Singapore) and a price-monitoring platform (winner, Echelon Satellite 2014).</p>
+        </div>
+      </div>
+
+      <div class="timeline-item timeline-origin">
+        <div class="timeline-node"></div>
+        <div class="timeline-content">
+          <span class="org">Before all of this</span>
+          <span class="when">Before Dec 2012</span>
+          <p class="desc">Freshly graduated with an MSc in Computer Science, a head full of ideas, certain I was about to change the world, and an appetite for it that never really went away.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
