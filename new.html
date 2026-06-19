@@ -28,6 +28,7 @@
     --body: 'Inter', -apple-system, sans-serif;
 
     --max: 760px;
+    --max-wide: 1100px;
   }
 
   * { box-sizing: border-box; }
@@ -153,7 +154,89 @@
   }
   .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
 
-  /* ---------- Section scaffolding ---------- */
+  /* ---------- Banner hero ---------- */
+  .banner-wrap {
+    position: relative;
+    width: 100%;
+    max-height: 280px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--rule);
+  }
+  .banner-wrap img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    /* LinkedIn banner native size: 1584 x 396px. Crop centers by default; adjust object-position if your focal point sits elsewhere, e.g. object-position: center 30%; */
+    filter: grayscale(100%) contrast(1.05);
+  }
+  .banner-wrap::after {
+    /* subtle paper-toned fade at the bottom so the banner blends into the hero below */
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 90px;
+    background: linear-gradient(to bottom, rgba(247,245,241,0) 0%, var(--paper) 100%);
+  }
+  @media (max-width: 560px) {
+    .banner-wrap, .banner-wrap img { max-height: 160px; height: 160px; }
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 28px;
+    align-items: flex-start;
+  }
+  .headshot {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--paper);
+    box-shadow: 0 0 0 1px var(--rule);
+    filter: grayscale(100%) contrast(1.05);
+    margin-top: -86px; /* pulls the headshot up to overlap the banner fade, LinkedIn-profile style */
+    background: var(--paper-dim);
+    flex-shrink: 0;
+  }
+  @media (max-width: 560px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .headshot { width: 96px; height: 96px; margin-top: -64px; }
+  }
+
+  /* ---------- Contact icons ---------- */
+  .icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding: 8px 13px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .icon-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    fill: currentColor;
+  }
+  .icon-link:hover {
+    color: var(--signal);
+    border-color: var(--signal);
+  }
+
+
   section { padding: 52px 0; border-bottom: 1px solid var(--rule); }
   section:last-of-type { border-bottom: none; }
   .section-label {
@@ -269,18 +352,6 @@
   footer {
     padding: 52px 0 64px;
   }
-  .contact-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-    margin-top: 8px;
-  }
-  .contact-row a {
-    font-family: var(--mono);
-    font-size: 13.5px;
-    color: var(--ink-soft);
-  }
-  .contact-row a:hover { color: var(--signal); }
   .sign {
     margin-top: 36px;
     font-family: var(--mono);
@@ -305,10 +376,21 @@
   </div>
 </div>
 
+<div class="banner-wrap">
+  <!-- LinkedIn banner export, native size 1584x396px. Save as assets/banner.jpg -->
+  <img src="assets/img/banner.png" alt="" role="presentation">
+</div>
+
 <header class="hero">
   <div class="wrap">
-    <p class="eyebrow">Roopesh Nair</p>
-    <h1 class="name">Fractional CTO &amp;<br>tech advisor</h1>
+    <div class="hero-inner">
+      <!-- LinkedIn profile photo export, recommended 400x400px min. Save as assets/headshot.jpg -->
+      <img class="headshot" src="assets/img/headshot.jpg" alt="Roopesh Nair">
+      <div>
+        <p class="eyebrow">Roopesh Nair</p>
+        <h1 class="name">Fractional CTO &amp;<br>tech advisor</h1>
+      </div>
+    </div>
     <p class="role-line">for early-stage fintech and B2B founders</p>
     <p class="lede">
       I help founders get from "the demo works" to "production handles real money" —
@@ -488,11 +570,23 @@
       If you are an early-stage fintech or B2B founder figuring out the gap between
       a working demo and a system that handles real money, I would like to hear about it.
     </p>
-    <div class="contact-row">
-      <a href="mailto:roopesh90nair@gmail.com">roopesh90nair@gmail.com</a>
-      <a href="https://www.linkedin.com/in/roopesh90/" target="_blank" rel="noopener">linkedin.com/in/roopesh90</a>
-      <a href="https://github.com/roopesh90" target="_blank" rel="noopener">github.com/roopesh90</a>
-      <a href="https://topmate.io/roopesh90/" target="_blank" rel="noopener">topmate.io/roopesh90</a>
+    <div class="icon-row">
+      <a class="icon-link" href="mailto:roopesh90nair@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24l-7.4 6.47a1 1 0 01-1.2 0L4 8.24V18h16V8.24z"/></svg>
+        roopesh90nair@gmail.com
+      </a>
+      <a class="icon-link" href="https://www.linkedin.com/in/roopesh90/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        linkedin.com/in/roopesh90
+      </a>
+      <a class="icon-link" href="https://github.com/roopesh90" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.3 9.3 0 015 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        github.com/roopesh90
+      </a>
+      <a class="icon-link" href="https://topmate.io/roopesh90/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-13h2v6.59l4.3 4.3-1.42 1.42L11 13.41V7z"/></svg>
+        topmate.io/roopesh90
+      </a>
     </div>
     <p class="sign">Bengaluru, India — built and maintained by hand.</p>
   </div>
