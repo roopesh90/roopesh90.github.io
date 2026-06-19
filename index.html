@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roopesh Nair — Fractional CTO for early-stage fintech</title>
+<title>Roopesh Nair, Fractional CTO for early-stage fintech</title>
 <meta name="description" content="Helping early-stage fintech founders survive the day after launch. 12+ years building trading platforms, payment integrations, and the systems that move real money.">
-<meta property="og:title" content="Roopesh Nair — Fractional CTO for early-stage fintech">
+<meta property="og:title" content="Roopesh Nair, Fractional CTO for early-stage fintech">
 <meta property="og:description" content="Helping early-stage fintech founders survive the day after launch.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://roopesh90.github.io/">
@@ -237,6 +237,69 @@
   }
 
 
+  /* ---------- Info tooltip ---------- */
+  .info-trigger {
+    position: relative;
+    display: inline-block;
+  }
+  .info-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1.5px solid var(--signal);
+    color: var(--signal);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 6px;
+    background: var(--paper);
+    transition: background 0.15s ease, color 0.15s ease;
+    user-select: none;
+  }
+  .info-dot:hover, .info-dot:focus-visible, .info-dot.active {
+    background: var(--signal);
+    color: var(--paper);
+  }
+  .info-popover {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 290px;
+    max-width: 80vw;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    padding: 14px 16px;
+    border-radius: 5px;
+    box-shadow: 0 8px 24px rgba(21,23,26,0.25);
+    z-index: 20;
+  }
+  .info-popover::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 14px;
+    width: 11px;
+    height: 11px;
+    background: var(--ink);
+    transform: rotate(45deg);
+  }
+  .info-popover.open { display: block; }
+  .info-popover strong { color: var(--signal-bright); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .info-trigger:hover .info-popover { display: block; }
+  }
+
   section { padding: 52px 0; border-bottom: 1px solid var(--rule); }
   section:last-of-type { border-bottom: none; }
   .section-label {
@@ -388,13 +451,12 @@
       <img class="headshot" src="assets/img/headshot.jpg" alt="Roopesh Nair">
       <div>
         <p class="eyebrow">Roopesh Nair</p>
-        <h1 class="name">Fractional CTO &amp;<br>tech advisor</h1>
+        <h1 class="name">Fractional CTO<span class="info-trigger"><button class="info-dot" type="button" aria-label="What does Fractional CTO mean?" aria-expanded="false">i</button><span class="info-popover" role="tooltip">A <strong>Fractional CTO</strong> is a senior technology leader who works with a company part time or on a project basis, rather than as a full-time hire. Same judgment and accountability a full-time CTO would bring, sized to what an early-stage company actually needs and can afford right now.</span></span> &amp;<br>tech advisor</h1>
       </div>
     </div>
     <p class="role-line">for early-stage fintech and B2B founders</p>
     <p class="lede">
-      I help founders get from "the demo works" to "production handles real money" —
-      without the team burning out or the regulator calling.
+      I help founders get from "the demo works" to "production handles real money," without the team burning out or the regulator calling.
       Twelve years building trading platforms, payment integrations, and the
       unglamorous plumbing that keeps fintech running.
     </p>
@@ -411,7 +473,7 @@
     <p class="section-label">about</p>
     <div class="log-entry">
       <p>
-        I have spent twelve years building the systems that move money — trading platforms,
+        I have spent twelve years building the systems that move money: trading platforms,
         payment integrations, API gateways, order management systems, and the parts of fintech
         that never make it into a demo but decide whether the company survives its first year.
       </p>
@@ -426,9 +488,7 @@
       </p>
       <p>
         Right now I work as a fractional CTO and advisor with a small number of early-stage
-        fintech and B2B founders. I am also open to senior engineering leadership roles —
-        VP of Engineering, Director of Engineering, Head of Engineering — where the work
-        matches the convictions below.
+        fintech and B2B founders. I am also open to senior engineering leadership roles, including VP of Engineering, Director of Engineering, and Head of Engineering, where the work matches the convictions below.
       </p>
     </div>
   </div>
@@ -482,45 +542,45 @@
     <p class="section-label">experience</p>
 
     <div class="role">
-      <span class="org">Independent — Fractional CTO &amp; Tech Advisor</span>
-      <span class="when">Jul 2025 — Present</span>
+      <span class="org">Independent, Fractional CTO &amp; Tech Advisor</span>
+      <span class="when">Jul 2025 to Present</span>
       <p class="desc">Working with early-stage fintech and B2B founders on technical due diligence, architecture, team leadership, and the integration and security practices that let a small team handle real money safely.</p>
     </div>
 
     <div class="role">
-      <span class="org">Zones LLC — Development Lead, Integrations</span>
-      <span class="when">Jun 2024 — Jun 2025</span>
-      <p class="desc">Led the integrations team sitting at the centre of a large enterprise org — Dynamics 365 CRM, ERP, e-commerce, and reporting. Owned the integration layer for an Azure migration covering 60% of company revenue; cut SLA breaches from 70% to 10% during the US go-live.</p>
+      <span class="org">Zones LLC, Development Lead, Integrations</span>
+      <span class="when">Jun 2024 to Jun 2025</span>
+      <p class="desc">Led the integrations team sitting at the centre of a large enterprise org: Dynamics 365 CRM, ERP, e-commerce, and reporting. Owned the integration layer for an Azure migration covering 60% of company revenue, and cut SLA breaches from 70% to 10% during the US go-live.</p>
     </div>
 
     <div class="role">
-      <span class="org">Defi Technologies — Lead Software Engineer</span>
-      <span class="when">Nov 2020 — Feb 2024</span>
-      <p class="desc">Sixth team member. Led technical direction across four cryptocurrency products — retail trading, an enterprise white-labeled exchange, a derivatives platform, and a B2B OTC platform built 0 to 1. Built the Customer Delight practice and the API Gateway layer.</p>
+      <span class="org">Defi Technologies, Lead Software Engineer</span>
+      <span class="when">Nov 2020 to Feb 2024</span>
+      <p class="desc">Sixth team member. Led technical direction across four cryptocurrency products: retail trading, an enterprise white-labeled exchange, a derivatives platform, and a B2B OTC platform built 0 to 1. Built the Customer Delight practice and the API Gateway layer.</p>
     </div>
 
     <div class="role">
-      <span class="org">NIRA (Shuhari Tech Ventures) — Lead Software Engineer</span>
-      <span class="when">Jun 2018 — Nov 2020</span>
+      <span class="org">NIRA (Shuhari Tech Ventures), Lead Software Engineer</span>
+      <span class="when">Jun 2018 to Nov 2020</span>
       <p class="desc">First technical hire. Built the integration layer with Indian banking partners, the data infrastructure, and the information security practice from scratch. Mentored a team of 8 as the senior-most engineer.</p>
     </div>
 
     <div class="role">
-      <span class="org">Sporthood — Senior Software Developer</span>
-      <span class="when">Oct 2017 — May 2018</span>
-      <p class="desc">Led the B2B platform build for partners and trainers — web, Android, and backend APIs — for India's largest amateur sports network.</p>
+      <span class="org">Sporthood, Senior Software Developer</span>
+      <span class="when">Oct 2017 to May 2018</span>
+      <p class="desc">Led the B2B platform build for partners and trainers, including web, Android, and backend APIs, for India's largest amateur sports network.</p>
     </div>
 
     <div class="role">
-      <span class="org">Seynse Technologies — Technology Lead</span>
-      <span class="when">Jan 2016 — Jun 2017</span>
+      <span class="org">Seynse Technologies, Technology Lead</span>
+      <span class="when">Jan 2016 to Jun 2017</span>
       <p class="desc">Led the technology team across customer-facing applications, third-party integrations, and production environments for a cluster of digital financial products.</p>
     </div>
 
     <div class="role">
-      <span class="org">Clockwork Studios — Founding Team, Full-Stack Developer</span>
-      <span class="when">Dec 2012 — Jan 2016</span>
-      <p class="desc">Founding engineer on two consumer products — a fashion discovery platform (JFDI Asia accelerator, Singapore) and a price-monitoring platform (winner, Echelon Satellite 2014).</p>
+      <span class="org">Clockwork Studios, Founding Team, Full-Stack Developer</span>
+      <span class="when">Dec 2012 to Jan 2016</span>
+      <p class="desc">Founding engineer on two consumer products: a fashion discovery platform (JFDI Asia accelerator, Singapore) and a price-monitoring platform (winner, Echelon Satellite 2014).</p>
     </div>
   </div>
 </section>
@@ -557,7 +617,7 @@
 
     <a class="writeup" href="https://roopesh90.substack.com/" target="_blank" rel="noopener">
       <p class="wt">Notes from the Corner, Corner Table, Window Side →</p>
-      <p class="wd">Longer-form, more personal writing on Substack — observational essays and short prose.</p>
+      <p class="wd">Longer-form, more personal writing on Substack: observational essays and short prose.</p>
     </a>
   </div>
 </section>
@@ -588,9 +648,52 @@
         topmate.io/roopesh90
       </a>
     </div>
-    <p class="sign">Bengaluru, India — built and maintained by hand.</p>
+    <p class="sign">Bengaluru, India. Built and maintained by hand.</p>
   </div>
 </footer>
 
+<script>
+  (function () {
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (canHover) return; // desktop uses the CSS :hover rule, no JS needed
+
+    var dots = document.querySelectorAll('.info-dot');
+    dots.forEach(function (dot) {
+      dot.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var popover = dot.nextElementSibling;
+        var isOpen = popover.classList.contains('open');
+        document.querySelectorAll('.info-popover.open').forEach(function (p) {
+          p.classList.remove('open');
+        });
+        document.querySelectorAll('.info-dot.active').forEach(function (d) {
+          d.classList.remove('active');
+          d.setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          popover.classList.add('open');
+          dot.classList.add('active');
+          dot.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.info-popover.open').forEach(function (p) {
+        p.classList.remove('open');
+      });
+      document.querySelectorAll('.info-dot.active').forEach(function (d) {
+        d.classList.remove('active');
+        d.setAttribute('aria-expanded', 'false');
+      });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.info-popover.open').forEach(function (p) {
+          p.classList.remove('open');
+        });
+      }
+    });
+  })();
+</script>
 </body>
 </html>
