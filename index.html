@@ -168,7 +168,8 @@
     object-fit: cover;
     display: block;
     /* LinkedIn banner native size: 1584 x 396px. Crop centers by default; adjust object-position if your focal point sits elsewhere, e.g. object-position: center 30%; */
-    filter: grayscale(100%) contrast(1.05);
+    /* filter: grayscale(100%) contrast(1.05); */
+    object-position: bottom;
   }
   .banner-wrap::after {
     /* subtle paper-toned fade at the bottom so the banner blends into the hero below */
