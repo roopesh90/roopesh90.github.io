@@ -27,7 +27,7 @@
     --mono: 'JetBrains Mono', monospace;
     --body: 'Inter', -apple-system, sans-serif;
 
-    --max: 760px;
+    --max: 880px;
     --max-wide: 1100px;
   }
 
@@ -94,21 +94,21 @@
     padding: 64px 0 48px;
     border-bottom: 1px solid var(--rule);
   }
-  .eyebrow {
-    font-family: var(--mono);
-    font-size: 12.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--signal);
-    margin: 0 0 18px;
-  }
   h1.name {
     font-family: var(--display);
     font-weight: 600;
     font-size: clamp(2.4rem, 6vw, 3.4rem);
     line-height: 1.05;
-    margin: 0 0 14px;
+    margin: 0 0 8px;
     letter-spacing: -0.01em;
+  }
+  .title-line {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3.6vw, 2.1rem);
+    line-height: 1.15;
+    color: var(--ink-soft);
+    margin: 0 0 18px;
   }
   .role-line {
     font-family: var(--display);
@@ -183,26 +183,24 @@
   }
 
   .hero-inner {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 28px;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
   }
   .headshot {
-    width: 128px;
-    height: 128px;
+    width: 132px;
+    height: 132px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--paper);
     box-shadow: 0 0 0 1px var(--rule);
-    filter: grayscale(100%) contrast(1.05);
-    margin-top: -86px; /* pulls the headshot up to overlap the banner fade, LinkedIn-profile style */
+    margin-top: -150px; /* pulls the headshot up to sit on the banner itself */
+    margin-bottom: 20px;
     background: var(--paper-dim);
     flex-shrink: 0;
   }
   @media (max-width: 560px) {
-    .hero-inner { grid-template-columns: 1fr; }
-    .headshot { width: 96px; height: 96px; margin-top: -64px; }
+    .headshot { width: 100px; height: 100px; margin-top: -110px; margin-bottom: 16px; }
   }
 
   /* ---------- Contact icons ---------- */
@@ -246,18 +244,18 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 19px;
-    height: 19px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     border: 1.5px solid var(--signal);
     color: var(--signal);
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 11px;
     font-style: normal;
     font-weight: 500;
     cursor: pointer;
     vertical-align: middle;
-    margin-left: 6px;
+    margin-left: 7px;
     background: var(--paper);
     transition: background 0.15s ease, color 0.15s ease;
     user-select: none;
@@ -441,18 +439,16 @@
 
 <div class="banner-wrap">
   <!-- LinkedIn banner export, native size 1584x396px. Save as assets/banner.jpg -->
-  <img src="assets/img/banner.png" alt="" role="presentation">
+  <img src="assets/banner.jpg" alt="" role="presentation">
 </div>
 
 <header class="hero">
   <div class="wrap">
     <div class="hero-inner">
       <!-- LinkedIn profile photo export, recommended 400x400px min. Save as assets/headshot.jpg -->
-      <img class="headshot" src="assets/img/headshot.jpg" alt="Roopesh Nair">
-      <div>
-        <p class="eyebrow">Roopesh Nair</p>
-        <h1 class="name">Fractional CTO<span class="info-trigger"><button class="info-dot" type="button" aria-label="What does Fractional CTO mean?" aria-expanded="false">i</button><span class="info-popover" role="tooltip">A <strong>Fractional CTO</strong> is a senior technology leader who works with a company part time or on a project basis, rather than as a full-time hire. Same judgment and accountability a full-time CTO would bring, sized to what an early-stage company actually needs and can afford right now.</span></span> &amp;<br>tech advisor</h1>
-      </div>
+      <img class="headshot" src="assets/headshot.jpg" alt="Roopesh Nair">
+      <h1 class="name">Roopesh Nair</h1>
+      <p class="title-line">Fractional CTO<span class="info-trigger"><button class="info-dot" type="button" aria-label="What does Fractional CTO mean?" aria-expanded="false">i</button><span class="info-popover" role="tooltip">A <strong>Fractional CTO</strong> is a senior technology leader who works with a company part time or on a project basis, rather than as a full-time hire. Same judgment and accountability a full-time CTO would bring, sized to what an early-stage company actually needs and can afford right now.</span></span> &amp; tech advisor</p>
     </div>
     <p class="role-line">for early-stage fintech and B2B founders</p>
     <p class="lede">
@@ -479,12 +475,17 @@
       </p>
       <p>
         I was the first technical hire at a digital lending company, where I built the integration
-        layer with Indian banking systems and set up an information security practice from zero.
-        I led engineering on a cryptocurrency trading platform that went from nothing to real
-        volume in under two months, survived a regulatory wallet lockdown, and came out the other
-        side with a security practice that no longer depended on what we could find on Google.
-        I have led integration programmes inside large enterprises, and I have been the person
-        a team called when the thing they built under pressure started breaking.
+        layer with Indian banking systems, set up the data infrastructure, and built an information
+        security practice from zero. Later, I led engineering on a cryptocurrency trading platform
+        that went from nothing to real volume in under two months and survived a regulatory wallet
+        lockdown a few months after launch. I have also led integration programmes inside large
+        enterprises, and I have been the person a team called when the thing they built under
+        pressure started breaking.
+      </p>
+      <p>
+        None of this happened calmly. Most of it happened at odd hours, with strong chai, and a
+        team that trusted me enough to tell me when I was wrong. I am still that person, just with
+        better sleep now.
       </p>
       <p>
         Right now I work as a fractional CTO and advisor with a small number of early-stage
