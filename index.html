@@ -338,6 +338,41 @@
     box-shadow: 0 8px 24px rgba(21,23,26,0.25);
     z-index: 20;
   }
+  @media (max-width: 600px) {
+    .info-popover {
+      position: fixed;
+      left: 50%;
+      top: 90px;
+      transform: translateX(-50%);
+      width: min(86vw, 320px);
+      max-width: 86vw;
+      z-index: 31;
+    }
+    .info-popover::before { display: none; }
+    .info-popover::after {
+      content: 'tap anywhere to close';
+      display: block;
+      margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: #8a9088;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(21,23,26,0);
+      pointer-events: none;
+      z-index: 25;
+      transition: background 0.15s ease;
+    }
+    body:has(.info-popover.open)::before {
+      background: rgba(21,23,26,0.35);
+      pointer-events: auto;
+    }
+  }
   .info-popover::before {
     content: '';
     position: absolute;
