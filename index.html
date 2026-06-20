@@ -321,6 +321,19 @@
     background: var(--signal);
     color: var(--paper);
   }
+  .info-word {
+    cursor: pointer;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .info-trigger:hover .info-dot {
+      background: var(--signal);
+      color: var(--paper);
+    }
+  }
+  .info-trigger.trigger-active .info-dot {
+    background: var(--signal);
+    color: var(--paper);
+  }
   .info-popover {
     display: none;
     position: absolute;
@@ -551,6 +564,49 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+  .stackgrid-featured {
+    margin-bottom: 8px;
+  }
+  .stack-trigger {
+    position: relative;
+    display: inline-block;
+    margin-top: 6px;
+  }
+  .chip-featured {
+    border-color: var(--signal);
+    color: var(--ink);
+    font-weight: 500;
+    padding-right: 18px;
+  }
+  .stack-badge {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    width: 14px;
+    height: 14px;
+    font-size: 8.5px;
+    margin-left: 0;
+  }
+  .stack-trigger .info-popover {
+    left: 0;
+    top: calc(100% + 8px);
+  }
+  .stack-secondary {
+    padding-top: 18px;
+    border-top: 1px solid var(--rule);
+    margin-top: 14px;
+  }
+  .stack-secondary-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    margin: 0 0 12px;
+  }
+  .stack-secondary .chip {
+    opacity: 0.85;
+  }
   .chip {
     font-family: var(--mono);
     font-size: 12.5px;
@@ -620,7 +676,7 @@
       <!-- LinkedIn profile photo export, recommended 400x400px min. Save as assets/img/headshot.jpg -->
       <img class="headshot" src="assets/img/headshot.jpg" alt="Roopesh Nair">
       <h1 class="name">Roopesh Nair</h1>
-      <p class="title-line">Fractional CTO<span class="info-trigger"><button class="info-dot" type="button" aria-label="What does Fractional CTO mean?" aria-expanded="false">i</button><span class="info-popover" role="tooltip">A <strong>Fractional CTO</strong> is a senior technology leader who works with a company part time or on a project basis, rather than as a full-time hire. Same judgment and accountability a full-time CTO would bring, sized to what an early-stage company actually needs and can afford right now.</span></span> &amp; tech advisor</p>
+      <p class="title-line"><span class="info-trigger"><span class="info-word">Fractional CTO</span><button class="info-dot" type="button" aria-label="What does Fractional CTO mean?" aria-expanded="false">i</button><span class="info-popover" role="tooltip">A <strong>Fractional CTO</strong> is a senior technology leader who works with a company part time or on a project basis, rather than as a full-time hire. Same judgment and accountability a full-time CTO would bring, sized to what an early-stage company actually needs and can afford right now.</span></span> &amp; tech advisor</p>
     </div>
     <p class="role-line">for early-stage fintech and B2B founders</p>
     <p class="lede">
@@ -857,20 +913,63 @@
 <section id="stack">
   <div class="wrap">
     <p class="section-label">stack</p>
-    <div class="stackgrid">
-      <span class="chip">Node.js</span>
-      <span class="chip">TypeScript</span>
-      <span class="chip">Python</span>
-      <span class="chip">Java</span>
-      <span class="chip">Golang</span>
-      <span class="chip">AWS</span>
-      <span class="chip">Azure</span>
-      <span class="chip">PostgreSQL</span>
-      <span class="chip">MongoDB</span>
-      <span class="chip">Redis</span>
-      <span class="chip">Docker</span>
-      <span class="chip">Kong API Gateway</span>
-      <span class="chip">Kafka / Socket.io</span>
+    <p class="bridge-line">A few of these have real history. Hover or tap for the story.</p>
+
+    <div class="stackgrid stackgrid-featured">
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">Python</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about Python">i</button>
+        <span class="info-popover" role="tooltip">The one constant. NIRA, Defi, Zones, Seynse, Clockwork, all of it. Still my default for anything that needs to be built fast and right. Also the language behind a billing and inventory system I have been building and maintaining for a manufacturing client since 2019, the kind of unglamorous, real-world software that has to work every single day or someone cannot ship an order.</span>
+      </span>
+
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">Django</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about Django">i</button>
+        <span class="info-popover" role="tooltip">My framework of choice since Seynse and Clockwork, and still the backbone of that same long-running manufacturing project. Nine years of structuring real applications around it has taught me more about what breaks under actual daily use than any greenfield build ever could.</span>
+      </span>
+
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">Node.js &amp; TypeScript</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about Node.js &amp; TypeScript">i</button>
+        <span class="info-popover" role="tooltip">The language of the Defi platform, built and led the B2B OTC trading system on this stack from zero, including the parts that had to handle real volume within weeks of going live.</span>
+      </span>
+
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">Kong API Gateway</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about Kong API Gateway">i</button>
+        <span class="info-popover" role="tooltip">Designed and implemented the API Gateway layer across Defi's products. The unglamorous piece that decides whether every other service can actually talk to each other safely under load.</span>
+      </span>
+
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">AWS</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about AWS">i</button>
+        <span class="info-popover" role="tooltip">My cloud provider of choice for nearly everything I have built, NIRA, Defi, and every side project since. The NIRA data infrastructure is the clearest example, a pipeline built from nothing that turned raw partner and application data into something the credit and risk teams could actually query and trust, but the comfort with the platform runs across almost everything I have shipped.</span>
+      </span>
+
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">Azure</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about Azure">i</button>
+        <span class="info-popover" role="tooltip">The backbone of the integration layer I owned during the Zones Azure migration, the programme that covered 60% of company revenue and where SLA breaches dropped from 70% to 10%.</span>
+      </span>
+
+      <span class="info-trigger stack-trigger">
+        <span class="chip chip-featured info-word">PostgreSQL</span><button class="info-dot stack-badge" type="button" aria-expanded="false" aria-label="More about PostgreSQL">i</button>
+        <span class="info-popover" role="tooltip">The database underneath two very different problems, lending data at NIRA, trading data at Defi. Different domains, same discipline, data that has to be right because real money depends on it.</span>
+      </span>
+    </div>
+
+    <div class="stack-secondary">
+      <p class="stack-secondary-label">also in the toolbox</p>
+      <div class="stackgrid">
+        <span class="chip">Java</span>
+        <span class="chip">Golang</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">MongoDB</span>
+        <span class="chip">DynamoDB</span>
+        <span class="chip">Redis</span>
+        <span class="chip">Kafka</span>
+        <span class="chip">RabbitMQ</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Jenkins</span>
+        <span class="chip">GitHub Actions</span>
+        <span class="chip">REST &amp; Webhooks</span>
+        <span class="chip">Android</span>
+      </div>
     </div>
   </div>
 </section>
@@ -926,27 +1025,7 @@
     var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (canHover) return; // desktop uses the CSS :hover rule, no JS needed
 
-    var dots = document.querySelectorAll('.info-dot');
-    dots.forEach(function (dot) {
-      dot.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var popover = dot.nextElementSibling;
-        var isOpen = popover.classList.contains('open');
-        document.querySelectorAll('.info-popover.open').forEach(function (p) {
-          p.classList.remove('open');
-        });
-        document.querySelectorAll('.info-dot.active').forEach(function (d) {
-          d.classList.remove('active');
-          d.setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          popover.classList.add('open');
-          dot.classList.add('active');
-          dot.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-    document.addEventListener('click', function () {
+    function closeAll() {
       document.querySelectorAll('.info-popover.open').forEach(function (p) {
         p.classList.remove('open');
       });
@@ -954,13 +1033,39 @@
         d.classList.remove('active');
         d.setAttribute('aria-expanded', 'false');
       });
-    });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.info-popover.open').forEach(function (p) {
-          p.classList.remove('open');
-        });
+      document.querySelectorAll('.info-trigger.trigger-active').forEach(function (t) {
+        t.classList.remove('trigger-active');
+      });
+    }
+
+    function toggleTrigger(trigger, e) {
+      e.stopPropagation();
+      var dot = trigger.querySelector('.info-dot');
+      var popover = trigger.querySelector('.info-popover');
+      var isOpen = popover.classList.contains('open');
+      closeAll();
+      if (!isOpen) {
+        popover.classList.add('open');
+        dot.classList.add('active');
+        dot.setAttribute('aria-expanded', 'true');
+        trigger.classList.add('trigger-active');
       }
+    }
+
+    document.querySelectorAll('.info-trigger').forEach(function (trigger) {
+      var dot = trigger.querySelector('.info-dot');
+      var word = trigger.querySelector('.info-word');
+      if (dot) {
+        dot.addEventListener('click', function (e) { toggleTrigger(trigger, e); });
+      }
+      if (word) {
+        word.addEventListener('click', function (e) { toggleTrigger(trigger, e); });
+      }
+    });
+
+    document.addEventListener('click', closeAll);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeAll();
     });
   })();
 </script>
