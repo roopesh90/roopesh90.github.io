@@ -1028,6 +1028,11 @@
     function closeAll() {
       document.querySelectorAll('.info-popover.open').forEach(function (p) {
         p.classList.remove('open');
+        if (p._homeParent && p._homeNext !== undefined) {
+          p._homeParent.insertBefore(p, p._homeNext);
+        } else if (p._homeParent) {
+          p._homeParent.appendChild(p);
+        }
       });
       document.querySelectorAll('.info-dot.active').forEach(function (d) {
         d.classList.remove('active');
@@ -1041,10 +1046,19 @@
     function toggleTrigger(trigger, e) {
       e.stopPropagation();
       var dot = trigger.querySelector('.info-dot');
-      var popover = trigger.querySelector('.info-popover');
+      var popover = trigger.querySelector('.info-popover') ||
+        Array.prototype.find.call(document.querySelectorAll('.info-popover'), function (p) {
+          return p._homeTrigger === trigger;
+        });
       var isOpen = popover.classList.contains('open');
       closeAll();
       if (!isOpen) {
+        if (!popover._homeParent) {
+          popover._homeParent = popover.parentElement;
+          popover._homeNext = popover.nextSibling;
+          popover._homeTrigger = trigger;
+        }
+        document.body.appendChild(popover);
         popover.classList.add('open');
         dot.classList.add('active');
         dot.setAttribute('aria-expanded', 'true');
