@@ -240,6 +240,83 @@
     .section-nav { display: none; }
   }
 
+  /* ---------- Mobile nav ---------- */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 32;
+  }
+  @media (max-width: 1100px) {
+    .mobile-nav { display: block; }
+  }
+  .mobile-nav-toggle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--ink);
+    border: 1.5px solid var(--signal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(21,23,26,0.25);
+    transition: transform 0.15s ease;
+  }
+  .mobile-nav-toggle:active {
+    transform: scale(0.92);
+  }
+  .mobile-nav-toggle-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--signal-bright);
+    box-shadow: 0 0 0 3px rgba(62,122,99,0.3);
+  }
+  .mobile-nav.open .mobile-nav-toggle-dot {
+    background: var(--paper);
+    box-shadow: none;
+  }
+  .mobile-nav.open .mobile-nav-toggle {
+    transform: rotate(45deg);
+  }
+  .mobile-nav-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 58px;
+    background: var(--ink);
+    border-radius: 8px;
+    padding: 8px;
+    min-width: 200px;
+    box-shadow: 0 8px 24px rgba(21,23,26,0.3);
+  }
+  .mobile-nav.open .mobile-nav-menu {
+    display: block;
+  }
+  .mobile-nav-item {
+    display: block;
+    padding: 10px 12px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: #c8cbc6;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.12s ease, color 0.12s ease;
+  }
+  .mobile-nav-item:hover,
+  .mobile-nav-item:active {
+    background: rgba(255,255,255,0.06);
+    color: var(--paper);
+  }
+  .mobile-nav-item.active {
+    color: var(--signal-bright);
+  }
+  .mobile-nav-item.active::before {
+    content: '> ';
+  }
+
   /* ---------- Banner hero ---------- */
   .banner-wrap {
     position: relative;
@@ -1063,6 +1140,22 @@
   <a href="#writing" class="section-nav-dot" data-section="writing" aria-label="Writing"></a>
 </nav>
 
+<div class="mobile-nav">
+  <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-label="Jump to section">
+    <span class="mobile-nav-toggle-dot"></span>
+  </button>
+  <div class="mobile-nav-menu">
+    <a href="#top" class="mobile-nav-item" data-section="top">Top</a>
+    <a href="#about" class="mobile-nav-item" data-section="about">About</a>
+    <a href="#convictions" class="mobile-nav-item" data-section="convictions">What I believe</a>
+    <a href="#how-i-work" class="mobile-nav-item" data-section="how-i-work">How I work</a>
+    <a href="#what-changes" class="mobile-nav-item" data-section="what-changes">What changes for you</a>
+    <a href="#experience" class="mobile-nav-item" data-section="experience">Experience</a>
+    <a href="#stack" class="mobile-nav-item" data-section="stack">Stack</a>
+    <a href="#writing" class="mobile-nav-item" data-section="writing">Writing</a>
+  </div>
+</div>
+
 <script>
   (function () {
     var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -1130,10 +1223,12 @@
 <script>
   (function () {
     var navDots = document.querySelectorAll('.section-nav-dot');
-    if (!navDots.length) return;
+    var mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+    if (!navDots.length && !mobileNavItems.length) return;
 
-    var sections = Array.prototype.map.call(navDots, function (dot) {
-      return document.getElementById(dot.getAttribute('data-section'));
+    var allTargets = navDots.length ? navDots : mobileNavItems;
+    var sections = Array.prototype.map.call(allTargets, function (el) {
+      return document.getElementById(el.getAttribute('data-section'));
     }).filter(Boolean);
 
     if (!sections.length) return;
@@ -1145,11 +1240,44 @@
           navDots.forEach(function (dot) {
             dot.classList.toggle('active', dot.getAttribute('data-section') === id);
           });
+          mobileNavItems.forEach(function (item) {
+            item.classList.toggle('active', item.getAttribute('data-section') === id);
+          });
         }
       });
     }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
 
     sections.forEach(function (s) { observer.observe(s); });
+  })();
+</script>
+
+<script>
+  (function () {
+    var mobileNav = document.querySelector('.mobile-nav');
+    if (!mobileNav) return;
+
+    var toggle = mobileNav.querySelector('.mobile-nav-toggle');
+    var items = mobileNav.querySelectorAll('.mobile-nav-item');
+
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = mobileNav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    items.forEach(function (item) {
+      item.addEventListener('click', function () {
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!mobileNav.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
   })();
 </script>
 </body>
