@@ -263,23 +263,27 @@
     cursor: pointer;
     box-shadow: 0 4px 16px rgba(21,23,26,0.25);
     transition: transform 0.15s ease;
+    animation: nav-glow 2.6s ease-in-out infinite;
+  }
+  @keyframes nav-glow {
+    0%, 100% { box-shadow: 0 4px 16px rgba(21,23,26,0.25), 0 0 0 0 rgba(62,122,99,0.45); }
+    50% { box-shadow: 0 4px 16px rgba(21,23,26,0.25), 0 0 0 8px rgba(62,122,99,0); }
+  }
+  .mobile-nav.open .mobile-nav-toggle {
+    animation: none;
   }
   .mobile-nav-toggle:active {
     transform: scale(0.92);
   }
-  .mobile-nav-toggle-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--signal-bright);
-    box-shadow: 0 0 0 3px rgba(62,122,99,0.3);
+  .mobile-nav-toggle-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--signal-bright);
+    transition: color 0.15s ease, transform 0.15s ease;
   }
-  .mobile-nav.open .mobile-nav-toggle-dot {
-    background: var(--paper);
-    box-shadow: none;
-  }
-  .mobile-nav.open .mobile-nav-toggle {
-    transform: rotate(45deg);
+  .mobile-nav.open .mobile-nav-toggle-icon {
+    color: var(--paper);
+    transform: rotate(-25deg);
   }
   .mobile-nav-menu {
     display: none;
@@ -759,6 +763,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .dot { animation: none; }
+    .mobile-nav-toggle { animation: none; }
     html { scroll-behavior: auto; }
   }
 </style>
@@ -1143,7 +1148,10 @@
 
 <div class="mobile-nav">
   <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-label="Jump to section">
-    <span class="mobile-nav-toggle-dot"></span>
+    <svg class="mobile-nav-toggle-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M15.5 8.5L13 13L8.5 15.5L11 11L15.5 8.5Z" fill="currentColor"/>
+    </svg>
   </button>
   <div class="mobile-nav-menu">
     <a href="#top" class="mobile-nav-item" data-section="top">Top</a>
