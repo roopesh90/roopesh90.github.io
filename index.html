@@ -736,24 +736,75 @@
   }
 
   /* ---------- Writing ---------- */
-  .writeup {
-    display: block;
-    padding: 16px 0;
-    border-top: 1px solid var(--rule);
+  .writing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 700px) {
+    .writing-grid { grid-template-columns: 1fr; }
+  }
+  .writeup-card {
+    display: flex;
+    flex-direction: column;
+    padding: 22px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--paper-dim);
     text-decoration: none;
     color: var(--ink);
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
   }
-  .writeup:first-child { border-top: none; }
-  .writeup .wt {
+  .writeup-card:hover {
+    border-color: var(--signal);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(21,23,26,0.08);
+  }
+  .writeup-source {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--signal);
+    margin-bottom: 10px;
+  }
+  .writeup-source svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    flex-shrink: 0;
+  }
+  .writeup-source svg.linkedin-icon {
+    width: 16px;
+    height: 16px;
+    padding: 2px;
+    box-sizing: border-box;
+    background: var(--signal);
+    fill: var(--paper);
+    border-radius: 3px;
+  }
+  .writeup-card .wt {
     font-weight: 600;
-    margin: 0 0 4px;
+    font-size: 1.05rem;
+    margin: 0 0 8px;
+    line-height: 1.3;
   }
-  .writeup .wd {
+  .writeup-card .wd {
     color: var(--ink-soft);
     font-size: 0.93rem;
-    margin: 0;
+    margin: 0 0 16px;
+    flex-grow: 1;
   }
-  .writeup:hover .wt { color: var(--signal); }
+  .writeup-arrow {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    transition: color 0.18s ease;
+  }
+  .writeup-card:hover .writeup-arrow { color: var(--signal); }
 
   /* ---------- Contact / footer ---------- */
   footer {
@@ -1101,15 +1152,21 @@
   <div class="wrap">
     <p class="section-label">writing</p>
 
-    <a class="writeup" href="https://www.linkedin.com/pulse/what-actually-takes-build-fintech-platform-survives-launch-nair-y3pmc" target="_blank" rel="noopener">
-      <p class="wt">What it actually takes to build a fintech platform that survives launch →</p>
-      <p class="wd">A 2023 story on shipping a B2B OTC trading platform, the regulatory wallet lockdown that followed, and what I would tell any founder about to ship.</p>
-    </a>
+    <div class="writing-grid">
+      <a class="writeup-card" href="https://www.linkedin.com/pulse/what-actually-takes-build-fintech-platform-survives-launch-nair-y3pmc" target="_blank" rel="noopener">
+        <span class="writeup-source"><svg class="linkedin-icon" viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>linkedin</span>
+        <p class="wt">What it actually takes to build a fintech platform that survives launch</p>
+        <p class="wd">A 2023 story on shipping a B2B OTC trading platform, the regulatory wallet lockdown that followed, and what I would tell any founder about to ship.</p>
+        <span class="writeup-arrow">Read the article &rarr;</span>
+      </a>
 
-    <a class="writeup" href="https://roopesh90.substack.com/" target="_blank" rel="noopener">
-      <p class="wt">Notes from the Corner, Corner Table, Window Side →</p>
-      <p class="wd">Longer-form, more personal writing on Substack: observational essays and short prose.</p>
-    </a>
+      <a class="writeup-card" href="https://roopesh90.substack.com/" target="_blank" rel="noopener">
+        <span class="writeup-source"><svg viewBox="0 0 24 24"><path d="M3 3h18v3.5H3V3zm0 6h18v3H3V9zm0 6h18v6L12 17.5 3 21v-6z"/></svg>substack</span>
+        <p class="wt">Notes from the Corner, Corner Table, Window Side</p>
+        <p class="wd">Longer-form, more personal writing on Substack: observational essays and short prose.</p>
+        <span class="writeup-arrow">Read on Substack &rarr;</span>
+      </a>
+    </div>
   </div>
 </section>
 
