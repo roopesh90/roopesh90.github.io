@@ -591,6 +591,20 @@
   .conviction .t { font-weight: 600; margin: 0 0 4px; }
   .conviction .d { margin: 0; color: var(--ink-soft); font-size: 0.97rem; }
 
+  /* ---------- How I Actually Work (visually distinct from Convictions) ---------- */
+  .how-i-work-section {
+    background: var(--paper-dim);
+  }
+  .hiw-node {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--signal);
+    margin-top: 5px;
+  }
+  .how-i-work-list .conviction { border-top-color: var(--rule); }
+
   /* ---------- Experience ---------- */
   .bridge-line {
     font-family: var(--display);
@@ -940,40 +954,40 @@
   </div>
 </section>
 
-<section id="how-i-work">
+<section id="how-i-work" class="how-i-work-section">
   <div class="wrap">
     <p class="section-label">how I actually work</p>
-    <div class="convictions">
+    <div class="convictions how-i-work-list">
       <div class="conviction">
-        <span class="n">01</span>
+        <span class="n hiw-node" aria-hidden="true"></span>
         <div>
           <p class="t">I listen before I look at the stack.</p>
           <p class="d">How you talk about what has already gone wrong tells me more than an architecture diagram does. That is where I start.</p>
         </div>
       </div>
       <div class="conviction">
-        <span class="n">02</span>
+        <span class="n hiw-node" aria-hidden="true"></span>
         <div>
           <p class="t">I want to be in the room before the decision ships, not after.</p>
           <p class="d">Most of the damage I have seen did not come from bad engineering. It came from excitement, a quick yes, and nobody asking the boring questions first.</p>
         </div>
       </div>
       <div class="conviction">
-        <span class="n">03</span>
+        <span class="n hiw-node" aria-hidden="true"></span>
         <div>
           <p class="t">I build institutional memory where none exists.</p>
           <p class="d">Security practices, integration playbooks, the documentation nobody has time to write. Invisible until the day it is not, and by then it is too late to build from scratch.</p>
         </div>
       </div>
       <div class="conviction">
-        <span class="n">04</span>
+        <span class="n hiw-node" aria-hidden="true"></span>
         <div>
           <p class="t">Under pressure, I reach for the boring fix that holds.</p>
           <p class="d">Not because clever is bad, but because a tired team needs something reliable, not something impressive.</p>
         </div>
       </div>
       <div class="conviction">
-        <span class="n">05</span>
+        <span class="n hiw-node" aria-hidden="true"></span>
         <div>
           <p class="t">I think differently, and I have learned to use that.</p>
           <p class="d">Some of my best calls have come from noticing a pattern nobody else was tracking, or asking a question that felt off-topic until it was not.</p>
