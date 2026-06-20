@@ -823,11 +823,54 @@
   footer {
     padding: 52px 0 64px;
   }
-  .sign {
-    margin-top: 36px;
+  .sign-bar {
+    background: #0a0c0a;
+    border-top: 1px solid var(--signal);
+    padding: 18px 0;
+  }
+  .terminal-box {
     font-family: var(--mono);
     font-size: 12px;
-    color: #A8A29B;
+    line-height: 1.5;
+    height: 132px;
+    overflow: hidden;
+  }
+  .terminal-line {
+    margin-bottom: 6px;
+  }
+  .terminal-prompt {
+    margin: 0;
+    color: #6b9d7a;
+  }
+  .terminal-prompt .at { color: #6b9d7a; }
+  .terminal-prompt .path { color: #7a93c9; }
+  .terminal-prompt .num { color: #c9b25a; }
+  .terminal-prompt .bracket { color: #7a93c9; }
+  .terminal-content {
+    margin: 2px 0 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .terminal-dollar { color: #c96b8a; flex-shrink: 0; }
+  .terminal-text { color: #d8dbd5; }
+  .terminal-timestamp {
+    margin-left: auto;
+    color: #5a5d58;
+    font-size: 10.5px;
+    flex-shrink: 0;
+    padding-left: 12px;
+  }
+  .terminal-cursor {
+    color: var(--signal-bright);
+    animation: pulse 1s steps(1) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-cursor { animation: none; }
+  }
+  @media (max-width: 700px) {
+    .terminal-box { height: 168px; font-size: 11px; }
+    .terminal-timestamp { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -1209,7 +1252,28 @@
         topmate.io/roopesh90
       </a>
     </div>
-    <p class="sign">Bengaluru, India. Built and maintained by hand.</p>
+  </div>
+  <div class="sign-bar">
+    <div class="wrap">
+      <div class="terminal-box">
+        <div class="terminal-line" data-line="0">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+        <div class="terminal-line" data-line="1">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+        <div class="terminal-line" data-line="2">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+        <div class="terminal-line" data-line="3">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -1367,6 +1431,102 @@
         toggle.setAttribute('aria-expanded', 'false');
       }
     });
+  })();
+</script>
+
+<script>
+  (function () {
+    var lines = document.querySelectorAll('.terminal-line');
+    if (!lines.length) return;
+
+    var username = "roopesh90";
+    var computer= "nimbus";
+    var rootPath = "roopesh90.github.io:/etc/var/www"
+    var promptHTML = '<span class="at">[' + username + '@' + computer + ']</span> - <span class="bracket">[</span><span class="path">' + rootPath + '</span><span class="bracket">]</span>';
+
+    var content = [
+      'Handwritten in Bengaluru.',
+      'Born 1990, first touched a keyboard in 1999, grew up on the sound of a modem connecting.',
+      'Still here.'
+    ];
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function formatTime() {
+      var d = new Date();
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    function resetLines() {
+      lines.forEach(function (line) {
+        line.querySelector('.terminal-prompt').innerHTML = '';
+        line.querySelector('.terminal-content').innerHTML = '';
+      });
+    }
+
+    if (reduceMotion) {
+      lines.forEach(function (line, idx) {
+        var promptEl = line.querySelector('.terminal-prompt');
+        var contentEl = line.querySelector('.terminal-content');
+        if (idx < content.length) {
+          promptEl.innerHTML = promptHTML;
+          contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + content[idx] + '</span><span class="terminal-timestamp">' + formatTime() + '</span>';
+        } else {
+          promptEl.innerHTML = promptHTML;
+          contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-cursor">_</span>';
+        }
+      });
+      return;
+    }
+
+    var typeSpeed = 32;
+    var afterLinePause = 350;
+    var cursorHold = 5500;
+    var restartPause = 500;
+
+    function typeLine(lineIndex, charIndex, callback) {
+      var line = lines[lineIndex];
+      var promptEl = line.querySelector('.terminal-prompt');
+      var contentEl = line.querySelector('.terminal-content');
+      var text = content[lineIndex];
+
+      if (charIndex === 0) {
+        promptEl.innerHTML = promptHTML;
+      }
+
+      if (charIndex <= text.length) {
+        contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + text.slice(0, charIndex) + '</span><span class="terminal-cursor">_</span>';
+        setTimeout(function () { typeLine(lineIndex, charIndex + 1, callback); }, typeSpeed);
+      } else {
+        contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + text + '</span><span class="terminal-timestamp">' + formatTime() + '</span>';
+        setTimeout(callback, afterLinePause);
+      }
+    }
+
+    function showCursorLine() {
+      var line = lines[3];
+      var promptEl = line.querySelector('.terminal-prompt');
+      var contentEl = line.querySelector('.terminal-content');
+      promptEl.innerHTML = promptHTML;
+      contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-cursor">_</span>';
+      setTimeout(function () {
+        resetLines();
+        setTimeout(runSequence, restartPause);
+      }, cursorHold);
+    }
+
+    function runSequence() {
+      typeLine(0, 0, function () {
+        typeLine(1, 0, function () {
+          typeLine(2, 0, function () {
+            showCursorLine();
+          });
+        });
+      });
+    }
+
+    runSequence();
   })();
 </script>
 </body>
