@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Changelog, Roopesh Nair</title>
+<meta name="description" content="A real version history of this site, from a coming-soon page in 2015 to a fractional CTO landing page in 2026.">
+<link rel="canonical" href="https://roopesh90.github.io/changelog.html">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #15171A;
+    --ink-soft: #3A3D42;
+    --paper: #F7F5F1;
+    --paper-dim: #EDEAE3;
+    --rule: #D8D3C8;
+    --signal: #2D5A4A;
+    --signal-bright: #3E7A63;
+    --amber: #B8732E;
+
+    --display: 'Fraunces', serif;
+    --mono: 'JetBrains Mono', monospace;
+    --body: 'Inter', -apple-system, sans-serif;
+
+    --max: 880px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--signal); text-decoration-color: var(--rule); text-underline-offset: 3px; }
+  a:hover { color: var(--signal-bright); }
+  a:focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; }
+
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Status bar, matching the main site exactly ---------- */
+  .statusbar {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--mono);
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--signal);
+  }
+  .statusbar .wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--signal-bright);
+    box-shadow: 0 0 0 3px rgba(62,122,99,0.25);
+    flex-shrink: 0;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.55; }
+  }
+  .statusbar .path { color: #9aa0a8; }
+  .statusbar .back { margin-left: auto; color: #9aa0a8; text-decoration: none; }
+  .statusbar .back:hover { color: var(--paper); }
+  @media (max-width: 560px) {
+    .statusbar .path { display: none; }
+    .statusbar { font-size: 11.5px; }
+  }
+
+  /* ---------- Page header ---------- */
+  .page-head {
+    padding: 56px 0 40px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--signal);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.1;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .page-lede {
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ---------- Stats line, the "real history" proof point ---------- */
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px;
+    margin-top: 28px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .stats strong {
+    display: block;
+    font-family: var(--display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  /* ---------- Log ---------- */
+  .log {
+    position: relative;
+    padding: 44px 0 60px;
+  }
+  .log::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 8px;
+    bottom: 8px;
+    width: 1.5px;
+    background: var(--rule);
+  }
+  .era-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    margin: 0 0 22px 28px;
+    padding-top: 6px;
+  }
+  .era-label:not(:first-child) {
+    margin-top: 36px;
+  }
+  .entry {
+    position: relative;
+    padding: 0 0 30px 28px;
+  }
+  .entry:last-child { padding-bottom: 0; }
+  .entry-node {
+    position: absolute;
+    left: -28px;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 2px solid var(--rule);
+    z-index: 1;
+  }
+  .entry.released .entry-node {
+    border-color: var(--signal);
+  }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .version-badge {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--signal);
+    padding: 2px 9px;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+  }
+  .entry-date {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .entry ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 0.96rem;
+  }
+  .entry li { margin-bottom: 4px; }
+  .entry li:last-child { margin-bottom: 0; }
+  .entry li em {
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* ---------- Contact / footer, ported from index.html ---------- */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: 0 0 18px;
+  }
+  .icon-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--ink-soft);
+    padding: 8px 13px;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .icon-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    fill: currentColor;
+  }
+  .icon-link:hover {
+    color: var(--signal);
+    border-color: var(--signal);
+  }
+
+  footer {
+    padding: 52px 0 0;
+  }
+  .sign-bar {
+    background: #0a0c0a;
+    border-top: 1px solid var(--signal);
+    padding: 28px 0 32px;
+    margin-top: 56px;
+  }
+  .terminal-box {
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.5;
+    min-height: 196px;
+    overflow: hidden;
+  }
+  .terminal-line {
+    margin-bottom: 6px;
+  }
+  .terminal-prompt {
+    margin: 0;
+    color: #6b9d7a;
+  }
+  .terminal-prompt .at { color: #6b9d7a; }
+  .terminal-prompt .path { color: #7a93c9; }
+  .terminal-prompt .num { color: #c9b25a; }
+  .terminal-prompt .bracket { color: #7a93c9; }
+  .terminal-content {
+    margin: 2px 0 0;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .terminal-dollar { color: #c96b8a; flex-shrink: 0; }
+  .terminal-text { color: #d8dbd5; word-break: break-word; }
+  .terminal-timestamp {
+    margin-left: auto;
+    color: #5a5d58;
+    font-size: 10.5px;
+    flex-shrink: 0;
+    padding-left: 12px;
+  }
+  .terminal-cursor {
+    color: var(--signal-bright);
+    animation: pulse 1s steps(1) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .terminal-cursor { animation: none; }
+  }
+  @media (max-width: 700px) {
+    .terminal-box { min-height: 220px; font-size: 11px; }
+    .terminal-timestamp { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dot { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 600px) {
+    .page-head { padding: 40px 0 28px; }
+    h1 { font-size: 1.85rem; }
+    .stats { gap: 20px; margin-top: 22px; }
+    .stats strong { font-size: 1.25rem; }
+    .log { padding: 32px 0 44px; }
+    .log::before { left: 4px; }
+    .era-label { margin-left: 22px; font-size: 10.5px; }
+    .entry { padding-left: 22px; padding-bottom: 24px; }
+    .entry-node { left: -22px; width: 9px; height: 9px; }
+    .entry-head { gap: 8px; }
+    .version-badge { font-size: 11px; padding: 2px 8px; }
+    .entry-date { font-size: 11.5px; }
+    .entry ul { font-size: 0.91rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="statusbar">
+  <div class="wrap">
+    <span class="dot" aria-hidden="true"></span>
+    <span>fintech-systems</span>
+    <span class="path">/ changelog: full version history</span>
+    <a class="back" href="index.html">&larr; back to site</a>
+  </div>
+</div>
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">changelog</p>
+    <h1>Every real change to this site, since 2015.</h1>
+    <p class="page-lede">
+      Not a curated highlight reel. The actual log, pulled from version control,
+      a coming-soon page that grew into a real one, sat mostly untouched for years,
+      then got rebuilt entirely this June.
+    </p>
+    <div class="stats">
+      <div><strong>11</strong>years</div>
+      <div><strong>9</strong>tagged releases</div>
+      <div><strong>2015</strong>first commit</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="log">
+
+    <p class="era-label">2026, the rebuild</p>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v2.4</span>
+        <span class="entry-date">21 June 2026</span>
+      </div>
+      <ul>
+        <li>Adjusted the spacing between the footer and the terminal sign-bar</li>
+        <li>Updated the terminal prompt to show the actual host and path</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v2.3</span>
+        <span class="entry-date">20 June 2026</span>
+      </div>
+      <ul>
+        <li>Built the terminal-style sign bar for the footer, the kind that <em>types itself out</em> rather than just sitting there</li>
+        <li>Gave the terminal container a proper min-height so it stops jumping around mid-type</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v2.2</span>
+        <span class="entry-date">20 June 2026</span>
+      </div>
+      <ul>
+        <li>Built the section-navigation system, fixed dots on desktop, a floating compass-icon menu on mobile</li>
+        <li>Fixed a bug where "Top" was scrolling past the banner instead of to it</li>
+        <li>Moved the info popovers to render at the body level so they stop getting trapped behind other elements</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v2.1</span>
+        <span class="entry-date">20 June 2026</span>
+      </div>
+      <ul>
+        <li>Replaced the flat Experience list with a real timeline</li>
+        <li>Built the interactive Stack section, hover any of the core technologies and you get the real story</li>
+        <li>Rebuilt Writing as proper cards instead of two plain links</li>
+        <li>Restyled "How I Actually Work" so it stops looking like a twin of "What I Actually Believe"</li>
+        <li>Adjusted About's layout so the strongest line in it finally has room to breathe</li>
+        <li>Removed the character cap that was crowding the hero's intro paragraph against the nav rail</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v2.0</span>
+        <span class="entry-date">20 June 2026</span>
+      </div>
+      <ul>
+        <li>Added the "How I Actually Work" and "What Changes For You" sections, the page started saying something more specific than a resume would</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v1</span>
+        <span class="entry-date">19 June 2026</span>
+      </div>
+      <ul>
+        <li>Closed the SEO gaps, Open Graph tags, Twitter cards, a favicon, structured data</li>
+        <li>Fixed the banner and headshot, positioning, stacking, broken paths</li>
+        <li>New logos, new copy throughout</li>
+      </ul>
+    </div>
+
+    <p class="era-label">2022 to 2023, light upkeep on the old site</p>
+
+    <div class="entry">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="entry-date">7 January 2023</span>
+      </div>
+      <ul>
+        <li>Small cleanup pass on the old site</li>
+        <li>Trimmed unused CSS, removed a couple of dead image assets</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="entry-date">26 December 2022</span>
+      </div>
+      <ul>
+        <li>Added a self-updating years-of-experience counter</li>
+        <li>Gave the email address its own styling and basic obfuscation</li>
+      </ul>
+    </div>
+
+    <p class="era-label">2015, where it started</p>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v1.0.0</span>
+        <span class="entry-date">2 December 2015</span>
+      </div>
+      <ul>
+        <li><em>"The finished version"</em></li>
+        <li>Social sharing, SEO basics</li>
+        <li>A quietly self-updating years-of-experience counter that kept running for the better part of a decade</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v0.1.11</span>
+        <span class="entry-date">30 November 2015</span>
+      </div>
+      <ul>
+        <li>A round of analytics and cleanup</li>
+      </ul>
+    </div>
+
+    <div class="entry released">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="version-badge">v0.1.10</span>
+        <span class="entry-date">30 November 2015</span>
+      </div>
+      <ul>
+        <li>Coming-soon page launched</li>
+        <li>Everything pulled together into one place</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <span class="entry-node" aria-hidden="true"></span>
+      <div class="entry-head">
+        <span class="entry-date">28 to 29 November 2015</span>
+      </div>
+      <ul>
+        <li>Where it started</li>
+        <li><em>"Finished in one sitting, this was one hell of a sprint,"</em> the first commit message still says. It was right.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="section-label">reach me</p>
+    <h2>Currently taking on 2&ndash;3 fractional engagements.</h2>
+    <p style="color: var(--ink-soft); max-width: 50ch; margin: 0 0 4px;">
+      If you are an early-stage fintech or B2B founder figuring out the gap between
+      a working demo and a system that handles real money, I would like to hear about it.
+    </p>
+    <div class="icon-row">
+      <a class="icon-link" href="mailto:roopesh90nair@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 2.24l-7.4 6.47a1 1 0 01-1.2 0L4 8.24V18h16V8.24z"/></svg>
+        roopesh90nair@gmail.com
+      </a>
+      <a class="icon-link" href="https://www.linkedin.com/in/roopesh90/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+        linkedin.com/in/roopesh90
+      </a>
+      <a class="icon-link" href="https://github.com/roopesh90" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.3 9.3 0 015 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0022 12.25C22 6.58 17.52 2 12 2z"/></svg>
+        github.com/roopesh90
+      </a>
+      <a class="icon-link" href="https://topmate.io/roopesh90/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16zm-1-13h2v6.59l4.3 4.3-1.42 1.42L11 13.41V7z"/></svg>
+        topmate.io/roopesh90
+      </a>
+    </div>
+  </div>
+  <div class="sign-bar">
+    <div class="wrap">
+      <div class="terminal-box">
+        <div class="terminal-line" data-line="0">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+        <div class="terminal-line" data-line="1">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+        <div class="terminal-line" data-line="2">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+        <div class="terminal-line" data-line="3">
+          <p class="terminal-prompt"></p>
+          <p class="terminal-content"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var lines = document.querySelectorAll('.terminal-line');
+    if (!lines.length) return;
+
+    var username = "roopesh90";
+    var computer = "roopesh90.github.io";
+    var rootPath = "/etc/var/www";
+    var promptHTML = '<span class="at">[' + username + '@' + computer + ':' + rootPath + ']</span>';
+
+    var content = [
+      'Handwritten in Bengaluru.',
+      'Born 1990, first touched a keyboard in 1999, grew up on the sound of a modem connecting.',
+      'Still here.',
+      '_'
+    ];
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function formatTime() {
+      var d = new Date();
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    function resetLines() {
+      lines.forEach(function (line) {
+        line.querySelector('.terminal-prompt').innerHTML = '';
+        line.querySelector('.terminal-content').innerHTML = '';
+      });
+    }
+
+    if (reduceMotion) {
+      lines.forEach(function (line, idx) {
+        var promptEl = line.querySelector('.terminal-prompt');
+        var contentEl = line.querySelector('.terminal-content');
+        if (idx < content.length - 1) {
+          promptEl.innerHTML = promptHTML;
+          contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + content[idx] + '</span><span class="terminal-timestamp">' + formatTime() + '</span>';
+        } else {
+          promptEl.innerHTML = promptHTML;
+          contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-cursor">_</span>';
+        }
+      });
+      return;
+    }
+
+    var typeSpeed = 32;
+    var afterLinePause = 350;
+    var cursorHold = 5500;
+    var restartPause = 500;
+
+    function typeLine(lineIndex, charIndex, callback) {
+      var line = lines[lineIndex];
+      var promptEl = line.querySelector('.terminal-prompt');
+      var contentEl = line.querySelector('.terminal-content');
+      var text = content[lineIndex];
+
+      if (charIndex === 0) {
+        promptEl.innerHTML = promptHTML;
+      }
+
+      if (charIndex <= text.length) {
+        contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + text.slice(0, charIndex) + '</span><span class="terminal-cursor">_</span>';
+        setTimeout(function () { typeLine(lineIndex, charIndex + 1, callback); }, typeSpeed);
+      } else {
+        contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + text + '</span><span class="terminal-timestamp">' + formatTime() + '</span>';
+        setTimeout(callback, afterLinePause);
+      }
+    }
+
+    function showCursorLine() {
+      var line = lines[3];
+      var promptEl = line.querySelector('.terminal-prompt');
+      var contentEl = line.querySelector('.terminal-content');
+      promptEl.innerHTML = promptHTML;
+      contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-cursor">_</span>';
+      setTimeout(function () {
+        resetLines();
+        setTimeout(runSequence, restartPause);
+      }, cursorHold);
+    }
+
+    function runSequence() {
+      typeLine(0, 0, function () {
+        typeLine(1, 0, function () {
+          typeLine(2, 0, function () {
+            showCursorLine();
+          });
+        });
+      });
+    }
+
+    runSequence();
+  })();
+</script>
+</body>
+</html>
