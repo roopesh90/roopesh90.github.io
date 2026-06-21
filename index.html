@@ -1440,9 +1440,9 @@
     if (!lines.length) return;
 
     var username = "roopesh90";
-    var computer= "nimbus";
-    var rootPath = "roopesh90.github.io:/etc/var/www"
-    var promptHTML = '<span class="at">[' + username + '@' + computer + ']</span> - <span class="bracket">[</span><span class="path">' + rootPath + '</span><span class="bracket">]</span>';
+    var computer= "roopesh90.github.io";
+    var rootPath = "/etc/var/www"
+    var promptHTML = '<span class="at">[' + username + '@' + computer + ':'+ rootPath +']</span>';
 
     var content = [
       'Handwritten in Bengaluru.',
