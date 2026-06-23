@@ -136,7 +136,14 @@
     50% { opacity: 0.55; }
   }
   .statusbar .path { color: #9aa0a8; }
-  .statusbar .uptime { margin-left: auto; color: #9aa0a8; }
+  .changelog-link {
+    margin-left: auto;
+    color: #9aa0a8;
+    text-decoration: none;
+    transition: color 0.15s ease;
+  }
+  .changelog-link:hover { color: var(--paper); }
+  .statusbar .uptime { margin-left: 18px; color: #9aa0a8; }
   @media (max-width: 560px) {
     .statusbar .uptime { margin-left: 0; }
     .statusbar .path { display: none; }
@@ -821,13 +828,12 @@
 
   /* ---------- Contact / footer ---------- */
   footer {
-    padding: 52px 0 0;
+    margin: 0;
   }
   .sign-bar {
     background: #0a0c0a;
     border-top: 1px solid var(--signal);
     padding: 28px 0 32px;
-    margin-top: 56px;
   }
   .terminal-box {
     font-family: var(--mono);
@@ -852,9 +858,10 @@
     display: flex;
     align-items: baseline;
     gap: 8px;
+    flex-wrap: wrap;
   }
   .terminal-dollar { color: #c96b8a; flex-shrink: 0; }
-  .terminal-text { color: #d8dbd5; }
+  .terminal-text { color: #d8dbd5; word-break: break-word; }
   .terminal-timestamp {
     margin-left: auto;
     color: #5a5d58;
@@ -870,7 +877,7 @@
     .terminal-cursor { animation: none; }
   }
   @media (max-width: 700px) {
-    .terminal-box { height: 168px; font-size: 11px; }
+    .terminal-box { min-height: 220px; font-size: 11px; }
     .terminal-timestamp { display: none; }
   }
 
@@ -888,6 +895,7 @@
     <span class="dot" aria-hidden="true"></span>
     <span>fintech-systems</span>
     <span class="path">/ status: surviving the day after launch since 2012</span>
+    <a class="changelog-link" href="changelog.html">changelog &rarr;</a>
     <span class="uptime">bengaluru, in</span>
   </div>
 </div>
@@ -1227,10 +1235,10 @@
   </div>
 </section>
 
-<footer id="contact">
+<section id="contact">
   <div class="wrap">
     <p class="section-label">reach me</p>
-    <h2>Currently taking on 2–3 fractional engagements.</h2>
+    <h2>Currently taking on 2&ndash;3 fractional engagements.</h2>
     <p style="color: var(--ink-soft); max-width: 50ch; margin: 0 0 4px;">
       If you are an early-stage fintech or B2B founder figuring out the gap between
       a working demo and a system that handles real money, I would like to hear about it.
@@ -1254,6 +1262,9 @@
       </a>
     </div>
   </div>
+</section>
+
+<footer>
   <div class="sign-bar">
     <div class="wrap">
       <div class="terminal-box">
