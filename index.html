@@ -1452,8 +1452,8 @@
     if (!lines.length) return;
 
     var username = "roopesh90";
-    var computer= "roopesh90.github.io";
-    var rootPath = "/etc/var/www"
+    var computer = "roopesh90.github.io";
+    var rootPath = "/etc/var/www";
     var promptHTML = '<span class="at">[' + username + '@' + computer + ':'+ rootPath +']</span>';
 
     var content = [
@@ -1482,7 +1482,7 @@
       lines.forEach(function (line, idx) {
         var promptEl = line.querySelector('.terminal-prompt');
         var contentEl = line.querySelector('.terminal-content');
-        if (idx < content.length) {
+        if (idx < content.length - 1) {
           promptEl.innerHTML = promptHTML;
           contentEl.innerHTML = '<span class="terminal-dollar">[$]</span><span class="terminal-text">' + content[idx] + '</span><span class="terminal-timestamp">' + formatTime() + '</span>';
         } else {
